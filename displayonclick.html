@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Basic Information</h1>
+
+
+  First name:<br>
+  <input type="text" name="firstname" id="firstname" value=""><br>
+  Last name:<br>
+  <input type="text" name="lastname" id="lastname" value=""><br><br>
+
+<button type="button" onclick="alertwindow()">You Entered</button>
+<p id="displayinfo"></p>
+
+
+<script>
+function alertwindow() {
+	//console.log("I m here");
+  // document.getElementById("displayinfo").innerHTML =  document.getElementById("firstname").value + " " + document.getElementById("lastname").value;
+  var fullname;
+  fullname = "You entered your name as " + document.getElementById("firstname").value + " " + document.getElementById("lastname").value;
+  alert(fullname);
+}
+</script>
+
+
+
+<script>
+function inlinedisplay() {
+   document.getElementById("displayinfo").innerHTML =  document.getElementById("firstname").value + " " + document.getElementById("lastname").value;
+}
+</script>
+
+<!--
+<script>
+function alertdisplay() {
+window.alert(displaymessage());
+}
+</script>
+
+<script>
+function displaymessage() {
+   "We have captured your information";
+}
+</script>
+
+</script>
+-->
+
+</body>
+</html>
