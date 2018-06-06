@@ -1,18 +1,223 @@
 <!DOCTYPE html>
 <html>
+<head>
+
+</head>
+<style>
+body {
+    background-color: white;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+legend {
+    color: blue;
+    text-align: left;
+	font-size: 30px }
+
+	label {
+    color: blue;
+    text-align: left;
+	font-size: 20px }
+
+	button {
+    color: black;
+    text-align: left;
+	font-size: 20px; 
+	font-weight: bold;}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+	}
+
+.fieldsleft {
+    text-align: left;
+    color: black;
+
+}
+
+.fieldsright {
+    text-align: right;
+    color: black;
+}
+
+input:required {
+	border: 2px solid red;
+    <--!background-color: yellow;>
+	}
+
+	 td {
+	
+   	 padding: 15px;
+}
+.emailMsgCSS{
+    position: absolute;
+    margin-left: 161px;
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.phHelpCSS{
+    position: absolute;
+    margin-left: 178px;
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.phhelptextCSS{
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+		display: none;
+	}
+	
+phhelptext:hover
+{margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+	display: block;
+	}
+	
+	.tooltip {
+    position: relative;
+    display: inline-block;
+    <!-- border-bottom: 1px dotted black; -->
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+	
+</style>
 <body>
 
 <h1>Basic Information</h1>
 
+<p id="displayinfo" >
+ <fieldset>
+    <legend><b>Personal information:</b></legend>
+	<table >
+	<tr>
+	
+  <td> <label>First name: </label></td>
+  <td><input type="text" name="firstname" id="firstname" value="" align="right" ></td><td>
+</td>
 
-  First name:<br>
-  <input type="text" name="firstname" id="firstname" value=""><br>
-  Last name:<br>
-  <input type="text" name="lastname" id="lastname" value=""><br><br>
+<td>
+  <label>Last name:</label></td>
+  <td>
+  <input type="text" name="lastname" id="lastname" value="" align="left"><br><br>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  
+    <label>Email address: </label> </td><td>
+	<div>
+  <input type="text" name="email" id="email" value="" align="right">
+  <span id="emailMsg" class="emailMsgCSS" onclick="ClearField()">x</span>
+  </div>
+  </td>
+  
+    
+  
+  <td>
+  </td>
+  <td>
+  <label>Phone:</label></td><td>
+ <div>
+  <input type="text" name="phone" id="phone" value="" align="left">
+ <!-- <span id="phhelp" class="phHelpCSS" >?</span>
+    <span id="phhelp" class="phHelpCSS" onclick="DisplayHelpText()">?</span> 
+        <span id="phhelptext" class="phhelptextCSS">Enter mobile no</span> -->
+		
+		
+<div class="tooltip">?
+  <span class="tooltiptext">Enter mobile no</span>
+</div>
 
-<button type="button" onclick="alertwindow()">You Entered</button>
-<p id="displayinfo"></p>
+        
+	  </div>
+  </td>
+  </tr>
+  <tr> <td></td><td id="emailreq"></td></tr>
+  </table>
+</p>
+</fieldset>
+</br> 
+</br>	
+<button type="button" onclick="FormValidation()">Submit your information</button>
 
+<script>
+
+
+function FormValidation(){
+//First Name Validation 
+    var ln=document.getElementById('lastname').value;
+	var em=document.getElementById('email').value;
+    if(em == ""){
+        document.getElementById('email').style.borderColor = "red";
+		document.getElementById('emailreq').innerHTML = "Please enter email address";
+		//alert('Please Enter Email address');
+        //return false;
+		}
+	
+    if(ln == ""){
+        document.getElementById('lastname').style.borderColor = "red";
+		//alert('Please Enter required information');
+        return false;
+		}
+		}
+		
+function DisplayHelpText(){
+document.getElementById('phhelptext').style.display = "inline";
+}
+
+
+function ClearField(){
+document.getElementById('email').value="";
+}
+		
+</script>
 
 <script>
 function alertwindow() {
